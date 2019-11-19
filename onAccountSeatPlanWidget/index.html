@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Price override example</title>
+  </head>
+  <body>
+    <div
+      class="venue__c-seat-plan"
+      data-app="venue-app"
+      data-view-name="seat-plan"
+      data-affiliate-id="encoretickets"
+      data-product-id="1587"
+      data-product-type="show"
+      data-venue-id="138"
+      data-performance-type="A"
+      data-performance-date="2019-12-27"
+      data-performance-time="19:30"
+      data-quantity="2"
+      data-api-path=""
+      data-suppress-addtobasket="true"
+    ></div>
+
+    <script type="text/javascript" src="https://venue-service.tixuk.io/v1/js/venue-app.js"></script></div>
+    
+<script>
+  window.encoreSeatWidget.onGetOverridePriceSeats([
+    {
+      seatIdentifier: "STALLS-E8",
+      pricing: {
+        noBookingFee: false,
+        offer: false,
+        percentage: 0,
+        salePrice: {
+          value: 1010,
+          currency: "SEK"
+        },
+        faceValue: {
+          value: 1010,
+          currency: "GBP"
+        }
+      }
+    },
+    {
+      seatIdentifier: "STALLS-E9",
+      pricing: {
+        noBookingFee: false,
+        offer: true,
+        percentage: 10,
+        salePrice: {
+          value: 1000,
+          currency: "SEK"
+        },
+        faceValue: {
+          value: 1100,
+          currency: "SEK"
+        }
+      }
+    }]);
+
+  window.encoreSeatWidget.onGetOverridePriceGroups([{
+   groupIdentifier: "Circle~P44;47",
+   pricing: { 
+     noBookingFee: false, 
+     offer: true,
+     percentage: 15,
+     salePrice: { 
+       currency: "SEK", 
+       value: 7777
+     }, 
+     faceValue: {
+       currency: "GBP",
+       value: 7777
+     }
+   } 
+ }]);
+</script>
+<script>
+window.addEventListener("venue-app_selected-seats-summary-on-addtobasket", function(e) {
+  console.log("venue-app_addtobasket-submit", e);
+});
+</script>
+</body>
+</html>
