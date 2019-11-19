@@ -1,3 +1,22 @@
+# Demo
+
+This demo shows a simple static render of the seatplan widget with submit button supressed and an event listener added (and logged ot console). 
+
+This HTML page can be copied in your local web server if you have one setup or if you have docker installed:
+
+```sh
+> # will be avail on 0.0.0.0:8080
+> docker build -t some-content-nginx 
+> docker run --name some-nginx -d -p 8080:80 some-content-nginx
+```
+
+If you are on Mac or Linux-like OS: 
+
+```sh
+> # will be avail on 0.0.0.0:8080
+> make build-and-run
+```
+
 ## Event on submit:
 
 For 2 seats selected and on submit button pressed, you get an event raised which, among other generic event info, it has the following - under the details array:
