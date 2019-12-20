@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Price override example</title>
+  </head>
+  <body>
+    <div
+      id='venue-app'
+      class="venue__c-seat-plan"
+      data-app="venue-app"
+      data-view-name="seat-plan"
+      data-affiliate-id="encoretickets"
+      data-product-id="1587"
+      data-product-type="show"
+      data-venue-id="138"
+      data-performance-type="A"
+      data-performance-date="2019-12-27"
+      data-performance-time="19:30"
+      data-quantity="3"
+      data-api-path=""
+      data-suppress-addtobasket="true"
+    ></div>
+
+    <script type="text/javascript" src="https://venue-service.qatixuk.io/qa6/js/venue-app.js" async defer></script>
+    <script type="text/javascript" src="apiCall.js"></script>
+    
+<script>
+window.addEventListener("venue-app_selected-seats-summary-on-addtobasket", function(e) {
+  console.log("venue-app_addtobasket-submit", e);
+});
+var venueDiv = document.getElementById('venue-app');
+getPerformaceData(
+  venueDiv.getAttribute('data-affiliate-id'),
+  venueDiv.getAttribute('data-product-id'),
+  venueDiv.getAttribute('data-performance-date').replace(/-/g,""),
+  venueDiv.getAttribute('data-performance-time').replace(':',''),
+  venueDiv.getAttribute('data-quantity'),
+  (res) => window.encoreSeatWidget.onGetOverridePriceGroups(res)
+);
+</script>
+</body>
+</html>
