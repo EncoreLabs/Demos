@@ -19,10 +19,19 @@
       data-quantity="3"
       data-api-path=""
       data-suppress-addtobasket="true"
+      data-user-locale="sv_SE"
+      data-labels-config=""
     ></div>
 
-    <script type="text/javascript" src="https://venue-service.qatixuk.io/qa6/js/venue-app.js" async defer></script>
+    <script type="text/javascript" src="https://venue-service.qatixuk.io/qa6/js/venue-app.js"></script>
     <script type="text/javascript" src="apiCall.js"></script>
+
+    <script type="text/javascript" src="translations.js"></script>
+    <script>
+      var venueDiv = document.getElementById('venue-app');
+      venueDiv.setAttribute('data-labels-config', translations);
+    </script>
+
     
 <script>
 window.addEventListener("venue-app_selected-seats-summary-on-addtobasket", function(e) {
@@ -38,5 +47,6 @@ getPerformaceData(
   (res) => window.encoreSeatWidget.onGetOverridePriceGroups(res)
 );
 </script>
+
 </body>
 </html>
