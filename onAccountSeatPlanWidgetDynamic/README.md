@@ -1,6 +1,8 @@
 # Demo
 
-This demo shows a simple static render of the seatplan widget with submit button supressed and an event listener added (and logged ot console). 
+This demo shows a simple static render of the seatplan widget with submit button supressed and an event listener added (and logged ot console).
+
+The example has a JS function to call the inventory API and use the response to dynamically override the prices and currency, it also defers the seatplan loading until the prices are overriden
 
 This HTML page can be copied in your local web server if you have one setup or if you have docker installed:
 
