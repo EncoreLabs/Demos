@@ -1,4 +1,4 @@
-var host = 'https://inventory-service.qatixuk.io';
+var host = 'https://inventory-service.tixuk.io';
 var baseUri = '/api/v3/availability/products/';
 var markUp = 20;
 var currencyISO = 'SEK';
@@ -30,7 +30,8 @@ function getPerformaceData(affiliateId, productId, dateString, timeString, quant
                                 }
                             } 
                         };
-                        priceOverridesList.push(overrideObject);                    }
+                        priceOverridesList.push(overrideObject);                    
+                    }
                 });
             });
             _callback(priceOverridesList);
