@@ -87,7 +87,36 @@ detail: Array(2)
   length: 2
 ```
 
-what needed to perform `addToBasket` is is the seatKey which will be the same for each of the selected seats as it references the selected group
+what needed to perform `addToBasket` is the seatKey which will be the same for each of the selected seats as it references the selected group. 
+
+## Add to basket:
+
+How to add seats to the EAPI basket:
+
+- always use the first result in the details array of the js event.
+- use `seatKey` and `number` from the JS event and use in the `addToBasket` post body as:
+```xml
+<basket>
+	<product id="{{showID}}">
+	      <type>show</type>
+	      <venue id="{{venueID}}" />
+	      <!-- performance type can be A/M/E, use A so you don't need to specify a time-->
+	      <performance type="A" />
+	      <date>{{performanceDate}}</date>
+	      <quantity>{{quantityOfTickets}}</quantity>
+          <!-- seatKey from JS event -->
+	      <seat key="{{seatKey}}" />
+          <!-- first selected seat: start from, number from the JS event -->
+	      <startFrom>{{number}}</startFrom>
+	</product>
+	<agent id="{{agent_id}}">
+	    <partner>{{affiliate_id}}</partner>
+		<session>{{agent_session}}</session>
+    </agent>
+</basket>
+```
+if the chosen seats are in the middle of the lump (block of available seats) you should use the seat number under the name number in the `event->details[0]->number` and add to your `addToBasket` call in the optional parameter `startFrom`. Recommendation: always include startFrom to make it easier to program
+
 
 
 ## Venue service widget Storybook
